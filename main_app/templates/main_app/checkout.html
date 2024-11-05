@@ -1,0 +1,33 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Checkout</h2>
+    <p>Order ID: {{ order.id }}</p>
+    <p>Service: {{ order.service.name }}</p>
+    <p>Customer: {{ order.customer.name }}</p>
+    <p>Status: {{ order.status }}</p>
+    <p>Payment Status: {{ order.payment_status }}</p>
+
+    <!-- Stripe Checkout Button -->
+    <button id="checkout-button" class="btn btn-primary mt-3">Pay Now</button>
+</div>
+
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe('{{ stripe_public_key }}');  // Set the public key
+    var checkoutButton = document.getElementById('checkout-button');
+
+    checkoutButton.addEventListener('click', function () {
+        stripe.redirectToCheckout({ sessionId: '{{ session_id }}' })
+        .then(function (result) {
+            if (result.error) {
+                alert(result.error.message);  // Display error if any
+            }
+        });
+    });
+</script>
+{% endblock %}

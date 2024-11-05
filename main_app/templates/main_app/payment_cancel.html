@@ -1,0 +1,11 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Payment Canceled{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Payment Canceled</h2>
+    <p>Your payment was canceled. You can try again if you wish.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+</div>
+{% endblock %}

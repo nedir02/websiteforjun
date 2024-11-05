@@ -1,0 +1,14 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Mock Checkout{% endblock %}
+
+{% block content %}
+<h2>Mock Checkout</h2>
+<p>Order for: {{ order.customer.name }}</p>
+<p>Service: {{ order.service.name }}</p>
+<p>Price: ${{ order.service.price }}</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Confirm Payment</button>
+</form>
+{% endblock %}

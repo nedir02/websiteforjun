@@ -1,0 +1,40 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Create Order{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header text-center bg-info text-white">
+                    <h3>Create New Order</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        <!-- Display non-field errors -->
+                        {{ form.non_field_errors }}
+
+                        <div class="form-group">
+                            <label for="{{ form.service.id_for_label }}">{{ form.service.label }}</label>
+                            {{ form.service }}
+                            {% if form.service.errors %}
+                                <div class="alert alert-danger">
+                                    {{ form.service.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-info btn-block mt-4">Submit Order</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <p><a href="{% url 'home' %}" class="text-info font-weight-bold">Back to Home</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'main_app/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">{{ service.name }}</h2>
+    <p><strong>Description:</strong></p>
+    <p>{{ service.description }}</p>
+    <p><strong>Price:</strong> ${{ service.price }}</p>
+
+    <a href="{% url 'service_list' %}" class="btn btn-secondary">Back to Service List</a>
+    
+    <h3 class="mt-4">Order This Service</h3>
+    <form method="post" action="{% url 'create_order' %}">
+        {% csrf_token %}
+        <input type="hidden" name="service_id" value="{{ service.id }}">
+        <button type="submit" class="btn btn-primary">Order Now</button>
+    </form>
+</div>
+{% endblock %}

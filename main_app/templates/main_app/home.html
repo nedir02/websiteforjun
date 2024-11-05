@@ -1,0 +1,58 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}Welcome to Our Company{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Welcome to [Company Name]</h1>
+        <p class="lead">We provide top-notch services and customer relationship management solutions.</p>
+        <a href="{% url 'service_list' %}" class="btn btn-light btn-lg mt-3">Explore Our Services</a>
+    </div>
+</section>
+
+<!-- Key Features Section -->
+<section class="features py-5">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Customer Management</h5>
+                        <p class="card-text">Easily manage customer information and interactions in one place.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-concierge-bell fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Service Orders</h5>
+                        <p class="card-text">Order services seamlessly with our integrated ordering system.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Analytics & KPI</h5>
+                        <p class="card-text">Track performance metrics and gain insights into your business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="about bg-light py-5">
+    <div class="container text-center">
+        <h2>About Us</h2>
+        <p class="lead">We’re dedicated to providing excellent service and building strong customer relationships. Our CRM-integrated platform is designed to meet all your needs efficiently.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary">Contact Us</a>
+    </div>
+</section>
+{% endblock %}
